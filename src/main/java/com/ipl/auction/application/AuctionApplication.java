@@ -1,4 +1,4 @@
-package com.ipl.auction;
+package com.ipl.auction.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
