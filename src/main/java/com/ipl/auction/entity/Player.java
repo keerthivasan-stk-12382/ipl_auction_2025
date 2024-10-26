@@ -1,5 +1,6 @@
 package com.ipl.auction.entity;
 
+import com.ipl.auction.enums.PlayerCategory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,8 @@ import lombok.Setter;
 public class Player {
 
     String name;
-    String category;
+    boolean isCappedPlayer;
+    PlayerCategory category;
 
 
 

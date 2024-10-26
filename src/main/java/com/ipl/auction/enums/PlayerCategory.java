@@ -1,5 +1,9 @@
 package com.ipl.auction.enums;
 
-public class PlayerCategory {
+public enum PlayerCategory {
 
+    ALL_ROUNDER,
+    BATSMAN,
+    BOWLER,
+    WICKET_KEEPER;
 }
