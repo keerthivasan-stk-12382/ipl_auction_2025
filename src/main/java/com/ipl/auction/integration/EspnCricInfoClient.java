@@ -2,7 +2,6 @@ package com.ipl.auction.integration;
 
 
 import com.ipl.auction.dto.ESPNPlayer;
-import com.ipl.auction.entity.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -37,18 +36,20 @@ public class EspnCricInfoClient {
                 JSONObject playerObj = playerList.getJSONObject(i);
 
                 int playerId = playerObj.getInt("id");
-                String role = playerObj.getString("role");
-                String team = playerObj.getString("abbreviation");
                 String name = playerObj.getString("known_as");
+
+                LOGGER.info("Player fetched: {} -> {}",playerId, name);
 
                 ESPNPlayer player = new ESPNPlayer();
 
                 player.setId(playerId);
                 player.setName(name);
-                player.setIplTeam(team);
-                player.setRole(role);
+                player.setIplTeam(playerObj.getString("abbreviation"));
+                player.setRole(playerObj.getString("role"));
+                player.setBasePrice(playerObj.getString("base_price"));
+
                 getIplPlayerDetails(playerId, player);
-                LOGGER.info("Player fetched: {}", name);
+
                 players.add(player);
             }
 

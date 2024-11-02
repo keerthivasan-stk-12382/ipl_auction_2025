@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #008CBA; /* IPL-themed blue */
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('ipl-hero-image.jpg') no-repeat center center/cover; /* Use an IPL-themed hero image */
+    height: 400px;
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h2 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.btn {
+    background: #FF5722; /* A vibrant color for buttons */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.featured-players {
+    padding: 20px;
+    text-align: center;
+}
+
+.player-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.player-item {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    margin: 15px;
+    padding: 15px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.player-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Rounded corners for player images */
+}
+
+footer {
+    background: #008CBA; /* IPL-themed blue */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}

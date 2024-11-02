@@ -13,6 +13,7 @@ public class ESPNPlayer {
     String dob;
 
     String iplTeam;
+    String basePrice;
     String country;
     boolean isCapped;
 
@@ -23,10 +24,10 @@ public class ESPNPlayer {
     String imageUrl;
 
     public String[] toCsv() {
-        return new String[]{String.valueOf(id), name, fullName, dob, iplTeam, country, String.valueOf(isCapped), role, battingStyle, bowlingStyle, imageUrl};
+        return new String[]{String.valueOf(id), name, fullName, dob, iplTeam, country, String.valueOf(isCapped), role, basePrice, battingStyle, bowlingStyle, imageUrl};
     }
 
     public static String[] getCsvHeaders() {
-        return new String[]{"id", "Name", "Full Name", "DOB", "IPL Team", "Country", "isCapped", "Role", "Batting Style", "Bowling Style", "ImageUrl"};
+        return new String[]{"id", "Name", "Full Name", "DOB", "IPL Team", "Country", "isCapped", "Role", "basePrice", "Batting Style", "Bowling Style", "ImageUrl"};
     }
 }

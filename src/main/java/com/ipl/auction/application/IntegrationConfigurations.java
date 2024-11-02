@@ -18,4 +18,5 @@ public class IntegrationConfigurations {
     public EspnCricInfoClient espnCricInfoClient() {
         return new EspnCricInfoClient();
     }
+
 }

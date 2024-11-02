@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Players</title>
+</head>
+<body>
+<div th:replace="layout :: content">
+
+<!-- Filter Form -->
+<form action="#" method="get">
+    <input type="text" name="search" th:value="${search}" placeholder="Search Player..."/>
+    <button type="submit">Filter</button>
+</form>
+
+
+<table border="1">
+    <tr>
+        <th><a href="#" th:href="@{/player(sortField='playerId', sortDirection=${sortDirection == 'asc' ? 'desc' : 'asc'})}">Player ID</a></th>
+        <th><a href="#" th:href="@{/player(sortField='name', sortDirection=${sortDirection == 'asc' ? 'desc' : 'asc'})}">Name</a></th>
+        <th>Full Name</th>
+        <th>Capped Player</a></th>
+        <th><a href="#" th:href="@{/player(sortField='country', sortDirection=${sortDirection == 'asc' ? 'desc' : 'asc'})}">Country</a></th>
+        <th><a href="#" th:href="@{/player(sortField='category', sortDirection=${sortDirection == 'asc' ? 'desc' : 'asc'})}">Category</a></th>
+    </tr>
+    <tr th:each="player : ${players}">
+        <td th:text="${player.playerId}"></td>
+        <td th:text="${player.name}"></td>
+        <td th:text="${player.fullName}"></td>
+        <td th:text="${player.isCappedPlayer} ? 'Yes' : 'No'"></td>
+        <td th:text="${player.country}"></td>
+        <td th:text="${player.category}"></td>
+    </tr>
+</table>
+    </div>
+</body>
+</html>

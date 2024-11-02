@@ -29,8 +29,8 @@ public class ApplicationException extends Exception{
 
     public String getDetailedErrorMessage() {
         if (innerException != null) {
-            return "ErrorCode: " + errorCode + " ErrorMessage: " + errorMessage + " InnerException: " + innerException.getMessage();
+            return "ErrorCode: " + getErrorCode() + " ErrorMessage: " + getErrorMessage() + " InnerException: " + innerException.getMessage();
         }
-        return "ErrorCode: " + errorCode + " ErrorMessage: " + errorMessage;
+        return "ErrorCode: " + getErrorCode() + " ErrorMessage: " + getErrorMessage();
     }
 }

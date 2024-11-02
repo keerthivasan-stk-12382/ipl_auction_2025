@@ -1,0 +1,68 @@
+<configuration>
+    <!-- Define log file paths -->
+    <property name="LOG_DIR" value="logs" />
+
+    <!-- Auction Service Logger -->
+    <appender name="AUCTION_SERVICE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/auction-service.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Auction Controller Logger -->
+    <appender name="AUCTION_CONTROLLER_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/auction-controller.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Auction Startup Logger -->
+    <appender name="AUCTION_STARTUP_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/auction-startup.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Web Access Logger -->
+    <appender name="WEB_ACCESS_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/web-access.log</file>
+        <encoder>
+            <!-- Include MDC variables in the log pattern -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %X{clientIP} | %X{httpMethod} | %X{requestURI} | %X{queryString} | %X{statusCode} | %X{duration} ms%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define loggers with specific appenders -->
+    <logger name="AuctionServiceLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="AUCTION_SERVICE_FILE" />
+    </logger>
+
+    <logger name="AuctionControllerLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="AUCTION_CONTROLLER_FILE" />
+    </logger>
+
+    <logger name="AuctionStartUpLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="AUCTION_STARTUP_FILE" />
+    </logger>
+
+    <logger name="WebAccessLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="WEB_ACCESS_FILE" />
+    </logger>
+
+    <!-- Root logger configuration (optional) -->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>
