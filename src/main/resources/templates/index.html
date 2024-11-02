@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css">
-  <title>IPL Player Auction</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>IPL Auction 2025</title>
 </head>
 <body>
+<header th:insert="layout :: header"></header>
 
+<div class="hero">  <!-- This should point to the correct layout file -->
 
-<div th:replace="layout :: content">
-  <div class="hero">
     <h2>Welcome to the IPL Player Auction!</h2>
-    <p>Join the excitement of bidding for your favorite players!</p>
-    <a href="#" class="btn">Get Started</a>
-  </div>
 
 </div>
+
+<footer th:insert="layout :: footer"></footer>
 
 </body>
 </html>

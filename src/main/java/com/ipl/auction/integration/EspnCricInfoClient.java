@@ -2,6 +2,7 @@ package com.ipl.auction.integration;
 
 
 import com.ipl.auction.dto.ESPNPlayer;
+import com.ipl.auction.entity.player_entity.Player;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -14,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +64,25 @@ public class EspnCricInfoClient {
         }
     }
 
-    public ESPNPlayer getIplPlayerDetails(int playerId, ESPNPlayer player) {
+    public void downloadPlayerImages(Player player) {
+        try {
+
+            String imageUrl = ESPNPaths.getIplPlayerImage(player);
+
+            byte[] imageBytes = restTemplate.getForObject(imageUrl, byte[].class);
+
+            Path imagePath = EspnCricInfoUtil.getIplPlayerImage(player);
+            Files.createDirectories(imagePath.getParent());
+            Files.write(imagePath, imageBytes);
+            LOGGER.info("Image downloaded for player: {}", player.getName());
+
+
+        }catch (Exception e) {
+            LOGGER.error("Error occurred while fetching player image from ESPN CricInfo: {1}", e);
+            throw new RuntimeException("Error occurred while fetching player image from ESPN CricInfo");
+        }
+    }
+    private void getIplPlayerDetails(int playerId, ESPNPlayer player) {
 
         try {
 
@@ -94,7 +115,6 @@ public class EspnCricInfoClient {
             throw new RuntimeException("Error occurred while fetching player details from ESPN CricInfo");
         }
 
-        return player;
     }
 
 }

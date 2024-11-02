@@ -3,28 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPL Auction</title>
-  <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Auction Layout Fragments</title>
 </head>
 <body>
-<header>
+
+<header th:fragment="header">
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
-      <li><a href="/players">Browse Players</a></li>
+      <li><a href="/player">Browse Players</a></li>
       <li><a href="/auctions">Upcoming Auctions</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<main>
-  <div th:replace="${content}"></div> <!-- Placeholder for page content -->
-</main>
 
-<footer>
+  <main th:fragment="content">
+    <h1>This Should be replaced</h1>
+  </main>
+
+<footer th:fragment="footer">
   <p>&copy; 2024 IPL Player Auction. All rights reserved.</p>
 </footer>
+
 </body>
 </html>

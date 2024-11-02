@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Players</title>
+    <title>2025 Players List</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div th:replace="layout :: content">
+
+<header th:insert="layout :: header"></header>
 
 <!-- Filter Form -->
 <form action="#" method="get">
@@ -31,6 +33,7 @@
         <td th:text="${player.category}"></td>
     </tr>
 </table>
-    </div>
+
+<footer th:insert="layout :: footer"></footer>
 </body>
 </html>

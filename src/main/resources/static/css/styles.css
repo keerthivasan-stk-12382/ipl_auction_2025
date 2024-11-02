@@ -65,15 +65,28 @@ nav a {
     border-radius: 5px;
 }
 
-.featured-players {
-    padding: 20px;
-    text-align: center;
-}
+
 
 .player-list {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
 }
 
 .player-item {

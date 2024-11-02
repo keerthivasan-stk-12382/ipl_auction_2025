@@ -1,5 +1,7 @@
 package com.ipl.auction.integration;
 
+import com.ipl.auction.entity.player_entity.Player;
+
 public class ESPNPaths {
 
     private ESPNPaths() {
@@ -21,6 +23,10 @@ public class ESPNPaths {
 
     public static String getIplPlayerDetailsHtml(int playerId) {
         return String.format("https://www.espncricinfo.com/ci/content/player/%s.html", playerId);
+    }
+
+    public static String getIplPlayerImage(Player player) {
+        return CRIC_INFO_URL + player.getPlayerExtn().getImagePath();
     }
 
 }

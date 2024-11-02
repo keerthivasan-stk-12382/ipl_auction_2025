@@ -1,12 +1,12 @@
 package com.ipl.auction.integration;
 
 import com.ipl.auction.dto.ESPNPlayer;
+import com.ipl.auction.entity.player_entity.Player;
 import com.opencsv.CSVWriter;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -88,7 +88,10 @@ public class EspnCricInfoUtil {
         return "src/main/resources/players/" + year + "/" + teamName + "_Players.csv";
     }
 
-    private static void getPlayerDetails(ESPNPlayer espnPlayer){
-
+    public static Path getIplPlayerImage(Player player) {
+        String imageFolder = "src/main/resources/players/images";
+        String imageName = player.getName().replace(" ", "_") + ".jpg";
+        return new File(imageFolder, imageName).toPath();
     }
+
 }
